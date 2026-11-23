@@ -1,328 +1,742 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anay Pradhan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Anay Pradhan - Future Car Company Owner, Tech Enthusiast, and YouTuber">
+  <title>Anay Makers Lab | Ideas Made Real</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Welcome to Anay Makers Lab. Explore creative 3D printed products, custom designs, technology and innovation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --black: #080808;
+      --dark: #111111;
+      --card: #151515;
+      --gold: #c6a15b;
+      --light-gold: #e5cc91;
+      --white: #f5f3ee;
+      --muted: #aaa69d;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: #0a0a0c;
-  padding: 15px;
-  text-align: center;
-}
 
-.navbar a {
-  color: #ffffff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: 600;
-}
-
-.navbar a:hover {
-  color: #00aaff;
-}
-    body {
-      background-color: #0e0e10;
-      color: #eaeaea;
+    html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
-    header {
-      height: 100vh;
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 8, 8, 0.94);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(198, 161, 91, 0.25);
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--light-gold);
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 88vh;
+      padding: 100px 8%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(120deg, #1b1b1f, #0e0e10);
       text-align: center;
+      background:
+        radial-gradient(ellipse at center, #292014 0%, #11100d 35%, #080808 75%);
+      border-bottom: 1px solid rgba(198, 161, 91, 0.3);
     }
 
-    header h1 {
-      font-size: 4rem;
-      color: #00aaff;
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 5px;
+      font-weight: 700;
+      margin-bottom: 22px;
     }
 
-    header p {
-      font-size: 1.5rem;
-      margin-top: 10px;
-      color: #c7c7c7;
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 8vw, 86px);
+      line-height: 1.12;
+      max-width: 1000px;
+      color: var(--white);
+    }
+
+    .hero h1 span {
+      color: var(--light-gold);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 650px;
+      margin: 25px auto 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #e5cc91, #b18a45);
+      color: #080808;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      border-radius: 3px;
+      transition: 0.3s;
+      border: 1px solid var(--gold);
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(198, 161, 91, 0.25);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--light-gold);
+      margin-left: 10px;
     }
 
     section {
-      padding: 80px 10%;
-      text-align: center;
-      background-color: #121214;
-    border-bottom: 2px solid #d4af37;
-      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.15);
+      padding: 95px 9%;
+      border-bottom: 1px solid rgba(198, 161, 91, 0.18);
     }
 
-    section h2 {
-      font-size: 2.5rem;
-      color: #00aaff;
+    .section-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 5vw, 46px);
+      color: var(--light-gold);
+      line-height: 1.25;
+    }
+
+    .section-description {
+      max-width: 700px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-content p {
+      color: #c7c3ba;
       margin-bottom: 20px;
     }
 
-    section p {
-      font-size: 1.1rem;
-      color: #dcdcdc;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto 30px;
+    .project-image {
+      display: block;
+      width: 100%;
+      max-width: 550px;
+      margin: 35px auto;
+      border-radius: 8px;
+      border: 1px solid rgba(198, 161, 91, 0.4);
     }
 
-    a.button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #00aaff;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid #29251e;
+      border-radius: 7px;
+      overflow: hidden;
       transition: 0.3s;
     }
 
-    a.button:hover {
-      background-color: #0088cc;
+    .product-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+      box-shadow: 0 12px 30px rgba(198, 161, 91, 0.08);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+      background: #202020;
+    }
+
+    .product-placeholder {
+      height: 230px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle, #30281a, #111);
+      color: var(--light-gold);
+      font-size: 55px;
+    }
+
+    .product-info {
+      padding: 25px;
+    }
+
+    .product-info h3 {
+      color: var(--light-gold);
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .product-info p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .price {
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .product-info .button {
+      margin-top: 5px;
+      padding: 11px 17px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 35px;
+    }
+
+    .feature {
+      background: var(--card);
+      padding: 30px 20px;
+      border: 1px solid #29251e;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    .feature-icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      color: var(--light-gold);
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .youtube-section {
+      text-align: center;
+      background: linear-gradient(120deg, #17130d, #090909);
+    }
+
+    .youtube-section p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 20px auto 30px;
+    }
+
+    .contact-content {
+      text-align: center;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .contact-content p {
+      color: var(--muted);
+      margin: 15px 0;
+    }
+
+    .email {
+      color: var(--light-gold);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .order-steps {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .order-step {
+      background: var(--card);
+      border-left: 3px solid var(--gold);
+      padding: 20px 25px;
+      margin-bottom: 15px;
+      border-radius: 3px;
+    }
+
+    .order-step h3 {
+      color: var(--light-gold);
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .order-step p {
+      color: var(--muted);
+      font-size: 13px;
     }
 
     footer {
-      background-color: #0a0a0c;
-      padding: 40px 10%;
+      padding: 45px 8%;
       text-align: center;
-      color: #999;
-      font-size: 0.9rem;
+      background: #050505;
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5rem;
+    footer .logo {
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #888;
+      font-size: 12px;
+      margin: 5px;
+    }
+
+    .footer-links {
+      margin: 18px 0;
+    }
+
+    .footer-links a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 12px;
+      margin: 0 10px;
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        padding: 15px 10px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 75vh;
+        padding: 75px 6%;
+      }
+
+      .button-outline {
+        margin: 12px 0 0;
       }
 
       section {
-        padding: 40px 5%;
-      }
-
-      section h2 {
-        font-size: 1.8rem;
+        padding: 65px 6%;
       }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 
 <body>
-<nav class="navbar">
-  <a href="#about">About</a>
-  <a href="#youtube">YouTube</a>
-  <a href="#interests">Interests</a>
-  <a href="#products">Products</a>
-  <a href="#contact">Contact</a>
-</nav>
-  <header>
-    <h1>Anay Pradhan</h1>
-    <p>Future Car Company Owner | Tech Enthusiast | YouTuber</p>
+
+  <nav class="navbar">
+    <a href="#" class="logo">ANAY MAKERS LAB</a>
+
+    <ul class="nav-links">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#interests">INTERESTS</a></li>
+      <li><a href="#products">PRODUCTS</a></li>
+      <li><a href="#youtube">YOUTUBE</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">WELCOME TO ANAY MAKERS LAB</div>
+
+    <h1>IDEAS.<br><span>DESIGNED.</span><br>MADE REAL.</h1>
+
+    <p>
+      Exploring creativity, technology, and innovation.
+      Turning ideas into real products through design and 3D printing.
+    </p>
+
+    <div>
+      <a class="button" href="#products">EXPLORE PRODUCTS</a>
+      <a class="button button-outline" href="#about">DISCOVER OUR STORY</a>
+    </div>
   </header>
 
   <section id="about">
-    <h2>About Anay</h2>
+    <div class="section-heading">
+      <div class="eyebrow">OUR STORY</div>
+      <h2>Built on Big Ideas</h2>
+    </div>
 
-    <p>
-      Anay Pradhan is an 11-year-old entrepreneur and technology enthusiast. Inspired by innovators like Elon Musk, he dreams of owning a car company and exploring cutting-edge technology. His curiosity drives him to learn more about machines, design, and the future of transportation.
-    </p>
+    <div class="about-content">
+      <p>
+        Welcome to Anay Makers Lab, a creative project built around
+        technology, design, entrepreneurship, and innovation.
+      </p>
 
-  </section>
+      <p>
+        Inspired by innovators like Elon Musk, Anay dreams of
+        building a future car company and exploring new technologies.
+        Every project is an opportunity to learn, experiment,
+        and bring creative ideas to life.
+      </p>
 
-  <section id="youtube">
-
-    <h2>YouTube Projects</h2>
-
-    <p>
-      Anay runs a YouTube channel called <strong>bigbroisthegoat</strong>, where he shares his interests in cars, technology, and creative projects. His videos aim to inspire and entertain others who love innovation and design.
-    </p>
-
-    <a class="button" href="https://www.youtube.com/@Bigbroisthegoat" target="_blank">
-      Visit Channel
-    </a>
-
+      <p>
+        From 3D printing to computers and engineering,
+        this is where curiosity meets creativity.
+      </p>
+    </div>
   </section>
 
   <section id="interests">
-    <img src="IMG_2575.jpeg" alt="Anay's project" style="max-width: 500px; width: 100%; border-radius: 12px; margin: 20px auto; display: block;">
-    
-  
+    <div class="section-heading">
+      <div class="eyebrow">WHAT WE LOVE</div>
+      <h2>Interests & Innovation</h2>
+      <p class="section-description">
+        Exploring the technology and creativity that inspire new ideas.
+      </p>
+    </div>
 
-    <h2>Interests</h2>
+    <img
+      src="IMG_2575.jpeg"
+      alt="Anay's creative project"
+      class="project-image"
+    >
 
-    <p>
-      <strong>Cars:</strong> Anay loves all car brands and models and is fascinated by their design, engineering, and speed.
-    </p>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">🏎️</div>
+        <h3>Automobiles</h3>
+        <p>Exploring car design, engineering, performance, and innovation.</p>
+      </div>
 
-    <p>
-      <strong>Computers:</strong> He enjoys building PCs and exploring computer technology while also gaming on his phone.
-    </p>
+      <div class="feature">
+        <div class="feature-icon">💻</div>
+        <h3>Technology</h3>
+        <p>Learning about computers, hardware, gaming, and future technology.</p>
+      </div>
 
-    <p>
-      <strong>Hobbies:</strong> When not working on projects, Anay enjoys bicycling and spending time with his friends.
-    </p>
+      <div class="feature">
+        <div class="feature-icon">🖨️</div>
+        <h3>3D Design</h3>
+        <p>Turning digital ideas into physical creations through 3D printing.</p>
+      </div>
 
+      <div class="feature">
+        <div class="feature-icon">🚀</div>
+        <h3>Entrepreneurship</h3>
+        <p>Building projects, learning business, and developing new ideas.</p>
+      </div>
+    </div>
   </section>
-<section id="business">
-  <h2>My 3D Printing Business</h2>
 
-  <p>
-    Welcome to my 3D printing business! I design and create custom 3D-printed
-    products, useful gadgets, fun projects, and unique creations.
-  </p>
-
-  <p>
-    My goal is to turn creative ideas into real products while learning about
-    3D design, technology, and entrepreneurship.
-  </p>
-
-  <p>
-    <strong>Want something 3D printed?</strong> Contact me to ask about
-    custom designs and products.
-  </p>
-
-  <a class="button" href="#contact">Contact Me</a>
-</section>
   <section id="products">
-  <h2>My Products</h2>
-    <div style="margin: 30px auto; max-width: 500px;">
-  <h3>🦦 Articulated Otter</h3>
+    <div class="section-heading">
+      <div class="eyebrow">THE COLLECTION</div>
+      <h2>Featured Products</h2>
+      <p class="section-description">
+        Creative 3D-printed products designed to bring ideas to life.
+        Custom colors available!
+      </p>
+    </div>
 
-  <p>
-    A fun, flexible articulated otter that makes a great desk toy,
-    decoration, or gift!
-  </p>
+    <div class="products-grid">
 
-  <p><strong>Price: $5</strong></p>
-<a class="button" href="#contact">Order Your Otter</a>
-  <p>Custom colors available!</p>
-  <img src="IMG_2688.jpeg" alt="Articulated Otter" style="max-width: 400px; width: 100%; border-radius: 12px; margin: 20px auto; display: block;">
-</div>
-<div style="margin: 30px auto; max-width: 500px;">
-  <h3>📱 3D-Printed Phone Stand</h3>
+      <div class="product-card">
+        <img
+          src="IMG_2688.jpeg"
+          alt="3D printed articulated otter"
+          class="product-image"
+        >
 
-  <p>
-    A simple and useful 3D-printed stand for holding your phone.
-  </p>
+        <div class="product-info">
+          <span class="tag">Featured Product</span>
+          <h3>Articulated Otter</h3>
+          <p>
+            A fun, flexible articulated otter.
+            Great for a desk, decoration, or gift.
+          </p>
+          <div class="price">$5.00</div>
+          <a class="button"
+             href="mailto:anaypradhan10@gmail.com?subject=Articulated%20Otter%20Order">
+            ORDER NOW
+          </a>
+          <p style="margin-top:15px;">Custom colors available!</p>
+        </div>
+      </div>
 
-  <p><strong>Price: $8</strong></p>
+      <div class="product-card">
+        <div class="product-placeholder">📱</div>
 
-  <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=anaypradhan10@gmail.com" target="_blank">
-    Order Phone Stand
-  </a>
+        <div class="product-info">
+          <span class="tag">Everyday Essential</span>
+          <h3>Phone Stand</h3>
+          <p>
+            A simple and useful 3D-printed stand
+            designed to hold your phone.
+          </p>
+          <div class="price">$8.00</div>
+          <a class="button"
+             href="mailto:anaypradhan10@gmail.com?subject=Phone%20Stand%20Order">
+            ORDER NOW
+          </a>
+          <p style="margin-top:15px;">Custom colors available!</p>
+        </div>
+      </div>
 
-  <p>Custom colors available!</p>
-  <div style="margin: 30px auto; max-width: 500px;">
-  <h3>🎁 Special Holiday Gift</h3>
+      <div class="product-card">
+        <div class="product-placeholder">🎁</div>
 
-  <p>
-    A fun 3D-printed gift that's perfect for birthdays, holidays, or just because!
-  </p>
+        <div class="product-info">
+          <span class="tag">Special Collection</span>
+          <h3>Holiday Gift</h3>
+          <p>
+            A fun 3D-printed gift for birthdays,
+            holidays, and special occasions.
+          </p>
+          <div class="price">$5.00</div>
+          <a class="button"
+             href="mailto:anaypradhan10@gmail.com?subject=Holiday%20Gift%20Order">
+            ORDER NOW
+          </a>
+          <p style="margin-top:15px;">Custom colors available!</p>
+        </div>
+      </div>
 
-  <p><strong>Price: $5</strong></p>
+    </div>
 
-  <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=anaypradhan10@gmail.com" target="_blank">
-    🎁 Order Holiday Gift
-  </a>
-
-  <p>Custom colors available!</p>
-</div>
-</div>
-  <p>
-    Check out some of the 3D-printed products and creations I make!
-  </p>
-
-  <p>
-    🖨️ Custom 3D Prints<br>
-    🎮 Gaming Accessories<br>
-    🔧 Useful Gadgets<br>
-    🎨 Fun & Creative Designs
-  </p>
-
-  <p>
-    Have an idea for something you'd like me to print?
-    <strong>Contact me for a custom order!</strong>
-    <br><br>
-<a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=anaypradhan10@gmail.com" target="_blank">
-  🛠️ Request a Custom Print
-</a>
-  </p>
-</section>
-  <section id="contact">
-
-    <h2>Contact</h2>
-
-    <p>Want to connect or collaborate? Reach out below!</p>
-
-    <p>
-    <strong>Email:</strong>
-<a href="mailto:anaypradhan10@gmail.com" style="color:#00aaff;">
-  anaypradhan10@gmail.com
-</a>
-    </p>
-
-    <a class="button" href="https://www.youtube.com/@Bigbroisthegoat" target="_blank">
-      YouTube Channel
-    </a>
-
+    <div style="text-align:center; margin-top:55px;">
+      <div class="eyebrow">HAVE AN IDEA?</div>
+      <h2>Let's Create Something.</h2>
+      <p class="section-description" style="margin-bottom:25px;">
+        Have an idea for a custom 3D print?
+        Get in touch to discuss your design.
+      </p>
+      <a class="button" href="mailto:anaypradhan10@gmail.com?subject=Custom%203D%20Print%20Request">
+        REQUEST A CUSTOM PRINT
+      </a>
+    </div>
   </section>
-<section id="how-to-order">
-  <h2>How Ordering Works</h2>
 
-  <p>🛒 <strong>1. Choose a product</strong><br>
-  Pick the 3D-printed product you want.</p>
-
-  <p>📧 <strong>2. Place your order</strong><br>
-  Click the Order button and send me an email.</p>
-
-  <p>🖨️ <strong>3. I print it</strong><br>
-  I'll make your order using my 3D printer.</p>
-
-  <p>📦 <strong>4. Get your order</strong><br>
-  We'll arrange how you can receive your finished print.</p>
-</section>
-  <footer>
+  <section id="youtube" class="youtube-section">
+    <div class="eyebrow">WATCH & EXPLORE</div>
+    <h2>Beyond the Workshop</h2>
 
     <p>
-      © 2026 Anay Pradhan. All rights reserved.
+      Follow the YouTube channel bigbroisthegoat
+      for videos, projects, gaming, and more.
     </p>
-<section id="why-buy">
-  <h2>⭐ Why Buy From Me?</h2>
 
-  <p>🖨️ <strong>Made with care</strong><br>
-  Every product is 3D printed with attention to detail.</p>
+    <a class="button"
+       href="https://www.youtube.com/@Bigbroisthegoat"
+       target="_blank"
+       rel="noopener noreferrer">
+      VISIT YOUTUBE CHANNEL
+    </a>
+  </section>
 
-  <p>🎨 <strong>Custom colors</strong><br>
-  Choose a color that matches your style.</p>
+  <section id="how-to-order">
+    <div class="section-heading">
+      <div class="eyebrow">SIMPLE & EASY</div>
+      <h2>How Ordering Works</h2>
+    </div>
 
-  <p>💡 <strong>Unique designs</strong><br>
-  Fun, useful, and creative products made by me.</p>
+    <div class="order-steps">
+      <div class="order-step">
+        <h3>01 — Choose Your Product</h3>
+        <p>Explore the collection and select something you like.</p>
+      </div>
 
-  <p>📧 <strong>Easy ordering</strong><br>
-  Just click an order button and send me an email.</p>
+      <div class="order-step">
+        <h3>02 — Send an Email</h3>
+        <p>Click an order button to ask about your chosen product.</p>
+      </div>
 
-  <p>🚀 <strong>Small business, big ideas!</strong></p>
-</section>
+      <div class="order-step">
+        <h3>03 — Production</h3>
+        <p>Once the order is confirmed, your product can be printed.</p>
+      </div>
+
+      <div class="order-step">
+        <h3>04 — Delivery or Pickup</h3>
+        <p>Arrange a suitable way to receive your finished product.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-buy">
+    <div class="section-heading">
+      <div class="eyebrow">THE ANAY MAKERS LAB DIFFERENCE</div>
+      <h2>Why Choose Us?</h2>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">🖨️</div>
+        <h3>Made with Care</h3>
+        <p>Attention to detail in every creation.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🎨</div>
+        <h3>Custom Colors</h3>
+        <p>Ask about available colors for your product.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h3>Creative Ideas</h3>
+        <p>Useful, fun, and original designs.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📧</div>
+        <h3>Easy Contact</h3>
+        <p>Get in touch about products and custom designs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-heading">
+      <div class="eyebrow">GET IN TOUCH</div>
+      <h2>Let's Connect</h2>
+      <p class="section-description">
+        Have a question, product idea, or project in mind?
+        We'd love to hear from you.
+      </p>
+    </div>
+
+    <div class="contact-content">
+      <p><strong>Email:</strong></p>
+
+      <p>
+        <a class="email" href="mailto:anaypradhan10@gmail.com">
+          anaypradhan10@gmail.com
+        </a>
+      </p>
+
+      <br>
+
+      <a class="button"
+         href="https://www.youtube.com/@Bigbroisthegoat"
+         target="_blank"
+         rel="noopener noreferrer">
+        VISIT OUR YOUTUBE
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#" class="logo">ANAY MAKERS LAB</a>
+
+    <p>Ideas. Designed. Made Real.</p>
+
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <p>© 2026 Anay Makers Lab. All rights reserved.</p>
   </footer>
 
 </body>
-
 </html>
- 
+
