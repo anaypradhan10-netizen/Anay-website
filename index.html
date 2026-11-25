@@ -425,7 +425,25 @@
         transition: none !important;
       }
     }
-  </style>
+  .cinematic-product {
+  opacity: 0;
+  transform: scale(0.75) translateY(60px);
+  transition: transform 1.8s ease, opacity 1.5s ease;
+}
+
+.cinematic-product.revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: drop-shadow(0 0 35px rgba(198,161,91,0.35));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-product {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 </head>
 
 <body>
@@ -526,7 +544,49 @@
     </div>
   </section>
 
-  <section id="products">
+  <section id="cinematic-reveal" style="
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:radial-gradient(ellipse at center,
+  #392b17, #080808 75%);
+  overflow:hidden;
+">
+
+  <div class="eyebrow">INTRODUCING</div>
+
+  <h2 style="font-size:clamp(36px,6vw,75px);">
+    Creativity in Every Layer.
+  </h2>
+
+  <img
+    src="Photoroom_20261124_131804.JPG"
+    alt="Dumbo Elephant Planter"
+    class="cinematic-product"
+    style="width:90%;max-width:650px;
+    border-radius:20px;margin:35px auto;"
+  >
+
+  <h2>Dumbo Elephant Planter</h2>
+
+  <p class="section-description">
+    Color. Creativity. Character.
+  </p>
+
+  <div class="price" style="margin:25px;">
+    $10.00
+  </div>
+
+  <a class="button" href="#products">
+    EXPLORE THE COLLECTION
+  </a>
+
+</section>
+
+<section id="products">
     <div class="section-heading">
       <div class="eyebrow">THE COLLECTION</div>
       <h2>Featured Products</h2>
@@ -762,7 +822,24 @@ href="https://mail.google.com/mail/?view=cm&fs=1&to=anaypradhan10@gmail.com&su=P
 
     <p>© 2026 Anay Makers Lab. All rights reserved.</p>
   </footer>
+<script>
+  const products = document.querySelectorAll('.cinematic-product');
 
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    products.forEach(product => observer.observe(product));
+  } else {
+    products.forEach(product => product.classList.add('revealed'));
+  }
+</script>
 </body>
 </html>
 
