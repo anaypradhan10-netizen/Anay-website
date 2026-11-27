@@ -388,7 +388,35 @@ h2 { font-family:Montserrat,sans-serif; font-weight:800; letter-spacing:-.045em;
 @keyframes arrive { from { transform:translateY(18px); opacity:.65; } to { transform:translateY(0); opacity:1; } }
 @media(max-width:700px) { #cinematic-reveal { grid-template-columns:1fr; gap:32px; min-height:auto; } .products-grid { grid-template-columns:1fr; } .hero h1 { font-size:clamp(38px,11vw,70px); } .product-info { padding:22px; } }
 @media(prefers-reduced-motion:reduce) { .reveal-active { animation:none; } }
-</style>
+/* Cinematic scroll animation */
+#cinematic-reveal {
+  overflow: hidden;
+  position: relative;
+}
+
+.showcase-visual {
+  animation: none !important;
+}
+
+.cinematic-product {
+  transform: scale(var(--product-scale, 1));
+  filter: drop-shadow(0 0 35px #d2ab6555);
+  will-change: transform;
+}
+
+.showcase-copy {
+  opacity: var(--text-opacity, 1);
+  transform: translateY(var(--text-offset, 0px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-product,
+  .showcase-copy {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -697,6 +725,29 @@ href="https://mail.google.com/mail/?view=cm&fs=1&to=anaypradhan10@gmail.com&su=P
     }, { threshold: 0.15 });
     document.querySelectorAll('.showcase-visual, .product-card, .section-heading').forEach(el => observer.observe(el));
   }
+// Cinematic scroll engine
+const showcase = document.getElementById('cinematic-reveal');
+
+function cinematicScroll() {
+  const rect = showcase.getBoundingClientRect();
+  const progress = Math.max(0, Math.min(1,
+    (window.innerHeight - rect.top) /
+    (window.innerHeight * 0.85)
+  ));
+
+  showcase.style.setProperty('--product-scale',
+    0.65 + progress * 0.45);
+
+  showcase.style.setProperty('--text-opacity',
+    0.35 + progress * 0.65);
+
+  showcase.style.setProperty('--text-offset',
+    (1 - progress) * 50 + 'px');
+}
+
+window.addEventListener('scroll', cinematicScroll, { passive: true });
+window.addEventListener('resize', cinematicScroll);
+cinematicScroll();
 </script>
 </body>
 </html>
